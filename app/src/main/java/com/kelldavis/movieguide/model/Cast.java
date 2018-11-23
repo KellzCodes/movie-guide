@@ -18,7 +18,7 @@ public class Cast {
         return name;
     }
 
-    public String getProfileUrl() {
+    public String getProfilePath() {
         return profilePath;
     }
 }
