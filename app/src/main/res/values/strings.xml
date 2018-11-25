@@ -1,3 +1,50 @@
 <resources>
     <string name="app_name">Movie Guide</string>
+    <string name="no_description_available">No description available</string>
+
+    <string name="action_sort">Sort</string>
+    <string name="sort_most_popular">Most Popular</string>
+    <string name="sort_top_rated">Top Rated</string>
+
+    <string name="no_internet_connection">Network is unavailable. Check your data or wifi connection.</string>
+    <string name="no_search_results">No results. Please try again.</string>
+
+    <string name="error_try_again">Try Again</string>
+    <string name="error_no_results">Error. No Results.</string>
+
+    <string name="popularity">Popularity</string>
+    <string name="language">Language</string>
+    <string name="bullet">\u2022</string>
+    <string name="time_format">%d hrs : %d mins</string>
+    <string name="no_reviews">No reviews for this movie</string>
+    <string name="no_cast">No cast details for this movie</string>
+    <string name="trying_again_alert">Checking..</string>
+    <string name="error_movie_duration">Error getting movie duration</string>
+    <string name="error_movie_cast">Error getting movie cast</string>
+    <string name="error_movie_review">Error getting movie reviews</string>
+    <string name="error_movie_director">Error getting movie director</string>
+    <string name="error_movie_details">Error getting movie details</string>
+    <string name="no_ratings">No ratings</string>
+    <string name="original_title">Original Title:</string>
+    <string name="not_available">N/A</string>
+    <string name="director">Directed by:</string>
+    <string name="release_date">Release Date:</string>
+    <string name="homepage">Homepage:</string>
+    <string name="sort_favorites">Favorites</string>
+    <string name="error_movie_trailers">Error getting movie trailers</string>
+    <string name="error_video_play">Unable to play the video</string>
+    <string name="action_share">Share</string>
+    <string name="action_playstore">View on Google Playstore</string>
+    <string name="action_tmdb">View on TMDB</string>
+    <string name="action_imdb">View on IMDB</string>
+    <string name="error_movie_intent">Unable to perform the action</string>
+    <string name="movie_share_intent_text">Check out %s  on TMDB\n%s %s\n\nBrought to you by Movie Guide</string>
+    <string name="movie_share_intent_chooser_text">Share \"%s\" via</string>
+    <string name="error_movie_images">Error getting movie images</string>
+    <string name="favorites_removed">Removed from favorites</string>
+    <string name="favorites_added">Added to favorites</string>
+    <string name="trailers">Trailers:</string>
+    <string name="no_trailers">No trailers available</string>
+    <string name="no_favorites">No favorites saved.</string>
+    <string name="browse_movies">Browse Movies</string>
 </resources>
