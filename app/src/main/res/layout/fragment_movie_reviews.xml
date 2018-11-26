@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".fragment.MovieReviewsFragment">
+    tools:context=".fragment.MovieReviewsFragment"
+    tools:ignore="MissingDefaultResource">
 
     <FrameLayout
         android:layout_width="match_parent"
