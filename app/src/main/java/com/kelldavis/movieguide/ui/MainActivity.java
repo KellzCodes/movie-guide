@@ -142,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         } else if (topRatedOptionChecked){
             getTopRatedMovies();
         } else {
-            //TODO add check to display favorites and enable favorites menu item
         }
     }
 
@@ -273,7 +272,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         //exit early if internet is not connected
         if (Utils.checkInternetConnection(this)) {
-            updateEmptyStateViews(R.drawable.no_internet_connection, R.string.no_internet_connection, R.drawable.ic_cloud_off, R.string.error_try_again);
+            updateEmptyStateViews(R.drawable.internet_access_error, R.string.no_internet_connection, R.drawable.ic_cloud_off, R.string.error_try_again);
             return;
         }
 
@@ -336,7 +335,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         //exit early if internet is not connected
         if (Utils.checkInternetConnection(this)) {
-            updateEmptyStateViews(R.drawable.no_internet_connection, R.string.no_internet_connection, R.drawable.ic_cloud_off, R.string.error_try_again);
+            updateEmptyStateViews(R.drawable.internet_access_error, R.string.no_internet_connection, R.drawable.ic_cloud_off, R.string.error_try_again);
             return;
         }
 
