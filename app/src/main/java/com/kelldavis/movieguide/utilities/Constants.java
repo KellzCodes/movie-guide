@@ -1,7 +1,7 @@
 package com.kelldavis.movieguide.utilities;
 
 import com.kelldavis.movieguide.BuildConfig;
-import com.kelldavis.movieguide.MainActivity;
+import com.kelldavis.movieguide.ui.MainActivity;
 
 public class Constants {
 

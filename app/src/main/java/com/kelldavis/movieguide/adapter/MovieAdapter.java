@@ -20,7 +20,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.kelldavis.movieguide.MainActivity;
+import com.kelldavis.movieguide.ui.MainActivity;
 import com.kelldavis.movieguide.R;
 import com.kelldavis.movieguide.listener.OnLoadMoreListener;
 import com.kelldavis.movieguide.model.Movie;
