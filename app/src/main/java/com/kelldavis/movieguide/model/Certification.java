@@ -10,24 +10,24 @@ public class Certification implements Parcelable {
     @SerializedName("certification")
     private String certification;
     @SerializedName("iso_3166_1")
-    private String iso;
+    private String iso_3166_1;
 
-    public Certification(String certification, String iso) {
+    public Certification(String certification, String iso_3166_1) {
         this.certification = certification;
-        this.iso = iso;
+        this.iso_3166_1 = iso_3166_1;
     }
 
     public Certification(Parcel parcel) {
         certification = parcel.readString();
-        iso = parcel.readString();
+        iso_3166_1 = parcel.readString();
     }
 
     public String getCertification() {
         return certification;
     }
 
-    public String getIso() {
-        return iso;
+    public String getIso_3166_1() {
+        return iso_3166_1;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class Certification implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(certification);
-        parcel.writeString(iso);
+        parcel.writeString(iso_3166_1);
     }
 
     public static final Creator<Certification> CREATOR = new Creator<Certification>() {

@@ -99,14 +99,14 @@ public class MovieCastFragment extends Fragment {
             public void onResponse(@NonNull Call<Credits> call, @NonNull Response<Credits> response) {
                 progressBar.setVisibility(View.GONE);
                 //verify if the response body or the fetched results are empty/null
-                if (response.body() == null || response.body().getCastList() == null) {
+                if (response.body() == null || response.body().getCast() == null) {
                     return;
                 }
 
                 //update data set, notify the adapter
                 //update view visibility accordingly
-                if (response.body().getCastList().size() > 0) {
-                    castList.addAll(response.body().getCastList());
+                if (response.body().getCast().size() > 0) {
+                    castList.addAll(response.body().getCast());
                     adapter.notifyDataSetChanged();
                     emptyTextView.setVisibility(View.GONE);
                     recyclerView.setVisibility(View.VISIBLE);

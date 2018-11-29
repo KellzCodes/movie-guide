@@ -27,7 +27,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.kelldavis.movieguide.R;
-import com.kelldavis.movieguide.R.anim.*;
 import com.kelldavis.movieguide.adapter.MovieFragmentPagerAdapter;
 import com.kelldavis.movieguide.adapter.MovieImageAdapter;
 import com.kelldavis.movieguide.listener.MovieApiClient;
@@ -213,7 +212,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     if (response.body().getCertificationResults() != null && response.body().getCertificationResults().getCertificationList() != null && response.body().getCertificationResults().getCertificationList().size() > 0) {
                         certifications = response.body().getCertificationResults().getCertificationList();
                         for (Certification certification : certifications) {
-                            if (certification.getIso().equals("IN")) {
+                            if (certification.getIso_3166_1().equals("IN")) {
                                 if (!TextUtils.isEmpty(certification.getCertification())) {
                                     contentRating.setText(certification.getCertification());
                                 }

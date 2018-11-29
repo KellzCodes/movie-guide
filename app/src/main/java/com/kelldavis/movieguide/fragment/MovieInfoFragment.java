@@ -126,12 +126,12 @@ public class MovieInfoFragment extends Fragment {
             @Override
             public void onResponse(@NonNull Call<Credits> call, @NonNull Response<Credits> response) {
                 //verify if the response body or the fetched results are empty/null
-                if (response.body() == null || response.body().getCrewList() == null || response.body().getCrewList().size() == 0) {
+                if (response.body() == null || response.body().getCrew() == null || response.body().getCrew().size() == 0) {
                     return;
                 }
 
                 //update data set, update the views accordingly
-                crewList.addAll(response.body().getCrewList());
+                crewList.addAll(response.body().getCrew());
                 directorTextView.setText("");
                 for (int i = 0; i < crewList.size(); i++) {
                     if (crewList.get(i).getJob().equalsIgnoreCase("director")) {
