@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 movieAdapter.notifyDataSetChanged();
 
                 if (movies.size() == 0) {
-                    updateEmptyStateViews(R.drawable.no_search_results, R.string.no_favorites, R.drawable.ic_error_outline, R.string.browse_movies);
+                    updateEmptyStateViews(R.drawable.no_search, R.string.no_favorites, R.drawable.ic_error_outline, R.string.browse_movies);
                 }
             }
         });
@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                         movies.addAll(viewModel.getFavoriteMovies().getValue());
                         movieAdapter.notifyDataSetChanged();
                     } else {
-                        updateEmptyStateViews(R.drawable.no_search_results, R.string.no_favorites, R.drawable.ic_error_outline, R.string.browse_movies);
+                        updateEmptyStateViews(R.drawable.no_search, R.string.no_favorites, R.drawable.ic_error_outline, R.string.browse_movies);
                     }
                 }
                 break;
@@ -296,7 +296,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
                 //verify if the response body or the fetched results are empty/null
                 if (response.body() == null || response.body().getResults() == null || response.body().getResults().size() == 0) {
-                    updateEmptyStateViews(R.drawable.no_search_results, R.string.no_search_results, R.drawable.ic_movie, R.string.error_no_results);
+                    updateEmptyStateViews(R.drawable.no_search, R.string.no_search_results, R.drawable.ic_movie, R.string.error_no_results);
                     return;
                 }
 
@@ -322,7 +322,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             @Override
             public void onFailure(@NonNull Call<MovieResults> call, @NonNull Throwable t) {
                 //display error messages on failure
-                updateEmptyStateViews(R.drawable.no_search_results, R.string.no_search_results, R.drawable.ic_error_outline, R.string.browse_movies);
+                updateEmptyStateViews(R.drawable.no_search, R.string.no_search_results, R.drawable.ic_error_outline, R.string.browse_movies);
             }
         });
     }
@@ -359,7 +359,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
                 //verify if the response body or the fetched results are empty/null
                 if (response.body() == null || response.body().getResults() == null || response.body().getResults().size() == 0) {
-                    updateEmptyStateViews(R.drawable.no_search_results, R.string.no_search_results, R.drawable.ic_movie, R.string.error_no_results);
+                    updateEmptyStateViews(R.drawable.no_search, R.string.no_search_results, R.drawable.ic_movie, R.string.error_no_results);
                     return;
                 }
 
@@ -385,7 +385,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             @Override
             public void onFailure(@NonNull Call<MovieResults> call, @NonNull Throwable t) {
                 //display error messages on failure
-                updateEmptyStateViews(R.drawable.no_search_results, R.string.no_search_results, R.drawable.ic_error_outline, R.string.error_no_results);
+                updateEmptyStateViews(R.drawable.no_search, R.string.no_search_results, R.drawable.ic_error_outline, R.string.error_no_results);
             }
         });
     }
