@@ -408,11 +408,11 @@
                         android:layout_marginRight="@dimen/dimens_8dp"
                         android:layout_marginStart="@dimen/dimens_16dp"
                         android:layout_marginTop="@dimen/dimens_16dp"
-                        android:text="@string/language"
+                        android:text="@string/originalLanguage"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/language"
+                        app:layout_constraintStart_toEndOf="@+id/originalLanguage"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -430,7 +430,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/language"
+                        android:id="@+id/originalLanguage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/dimens_8dp"

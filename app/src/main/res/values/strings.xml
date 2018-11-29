@@ -13,7 +13,7 @@
     <string name="error_no_results">Error. No Results.</string>
 
     <string name="popularity">Popularity</string>
-    <string name="language">Language</string>
+    <string name="originalLanguage">Language</string>
     <string name="bullet">\u2022</string>
     <string name="time_format">%d hrs : %d mins</string>
     <string name="no_reviews">No reviews for this movie</string>

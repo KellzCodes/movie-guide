@@ -76,7 +76,7 @@
             android:layout_marginLeft="@dimen/dimens_8dp"
             android:layout_marginRight="@dimen/dimens_8dp"
             android:layout_marginStart="@dimen/dimens_8dp"
-            android:text="@string/language"
+            android:text="@string/originalLanguage"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/barrier6"
             app:layout_constraintEnd_toStartOf="@+id/trending"
@@ -85,7 +85,7 @@
             app:layout_constraintTop_toTopOf="@+id/language_logo" />
 
         <TextView
-            android:id="@+id/language"
+            android:id="@+id/originalLanguage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimens_8dp"
@@ -135,7 +135,7 @@
 
 
         <TextView
-            android:id="@+id/plot"
+            android:id="@+id/overview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dimens_16dp"
@@ -228,7 +228,7 @@
             android:background="#CFD8DC"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/language" />
+            app:layout_constraintTop_toBottomOf="@+id/originalLanguage" />
 
         <TextView
             android:id="@+id/homepage_label"
@@ -272,7 +272,7 @@
             app:layout_constraintEnd_toStartOf="@+id/barrier2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/plot" />
+            app:layout_constraintTop_toBottomOf="@+id/overview" />
 
         <TextView
             android:id="@+id/originalTitle"

@@ -178,7 +178,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     }
 
                     //fetch movie duration from details api call
-                    int runtime = response.body().getDuration();
+                    int runtime = response.body().getRuntime();
                     //display run time in h:m format
                     duration.setText(Utils.formatDuration(DetailActivity.this, runtime));
 
@@ -193,24 +193,24 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     }
 
                     //fetch backdrop images
-                    if (response.body().getImageResults() != null && response.body().getImageResults().getBackdrops() != null && response.body().getImageResults().getBackdrops().size() > 0) {
+                    if (response.body().getImages() != null && response.body().getImages().getBackdrops() != null && response.body().getImages().getBackdrops().size() > 0) {
                         //add fetched images to the list
-                        if (response.body().getImageResults().getBackdrops().size() > 8) {
+                        if (response.body().getImages().getBackdrops().size() > 8) {
                             for (int i = 0; i < 8; i++) {
-                                images.add(response.body().getImageResults().getBackdrops().get(i));
+                                images.add(response.body().getImages().getBackdrops().get(i));
                             }
                         } else {
-                            images.addAll(response.body().getImageResults().getBackdrops());
+                            images.addAll(response.body().getImages().getBackdrops());
                         }
                     }
 
                     //fetch movie trailers
-                    if (response.body().getVideoResults() != null && response.body().getVideoResults().getResults() != null && response.body().getVideoResults().getResults().size() > 0) {
-                        movie.setVideoResults(response.body().getVideoResults());
+                    if (response.body().getVideos() != null && response.body().getVideos().getResults() != null && response.body().getVideos().getResults().size() > 0) {
+                        movie.setVideos(response.body().getVideos());
                     }
 
-                    if (response.body().getCertificationResults() != null && response.body().getCertificationResults().getCertificationList() != null && response.body().getCertificationResults().getCertificationList().size() > 0) {
-                        certifications = response.body().getCertificationResults().getCertificationList();
+                    if (response.body().getReleases() != null && response.body().getReleases().getCertificationList() != null && response.body().getReleases().getCertificationList().size() > 0) {
+                        certifications = response.body().getReleases().getCertificationList();
                         for (Certification certification : certifications) {
                             if (certification.getIso_3166_1().equals("IN")) {
                                 if (!TextUtils.isEmpty(certification.getCertification())) {
@@ -253,16 +253,16 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         year.setText(movie.getReleaseDate().substring(0, 4));
 
         //define default image in case the result is null
-        String posterImageUrl = movie.getImageUrl() != null ?
-                IMAGE_URL_SIZE.concat(movie.getImageUrl()) : "";
+        String posterImageUrl = movie.getPosterPath() != null ?
+                IMAGE_URL_SIZE.concat(movie.getPosterPath()) : "";
         Glide.with(this)
                 .setDefaultRequestOptions(Utils.setupGlide(BACKDROP_IMG))
                 .load(posterImageUrl)
                 .into(posterImage);
 
         //get genre names based on genre codes
-        if (movie.getGenres() != null) {
-            List<Integer> genreId = new ArrayList<>(movie.getGenres());
+        if (movie.getGenreIds() != null) {
+            List<Integer> genreId = new ArrayList<>(movie.getGenreIds());
             int count = 0;
             for (int id : genreId) {
                 genre.append(genreMap.get(id));

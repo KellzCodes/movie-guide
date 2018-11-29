@@ -21,11 +21,11 @@ public class Movie implements Parcelable {
 
     @ColumnInfo(name = "poster_path")
     @SerializedName("poster_path")
-    private String imageUrl;
+    private String posterPath;
 
     @ColumnInfo(name = "backdrop_path")
     @SerializedName("backdrop_path")
-    private String backdropImageUrl;
+    private String backdropPath;
 
     @ColumnInfo(name = "title")
     @SerializedName("title")
@@ -33,7 +33,7 @@ public class Movie implements Parcelable {
 
     @ColumnInfo(name = "overview")
     @SerializedName("overview")
-    private String plot;
+    private String overview;
 
     @ColumnInfo(name = "popularity")
     @SerializedName("popularity")
@@ -41,7 +41,7 @@ public class Movie implements Parcelable {
 
     @ColumnInfo(name = "vote_average")
     @SerializedName("vote_average")
-    private double userRating;
+    private double voteAverage;
 
     @ColumnInfo(name = "release_date")
     @SerializedName("release_date")
@@ -49,11 +49,11 @@ public class Movie implements Parcelable {
 
     @ColumnInfo(name = "original_language")
     @SerializedName("original_language")
-    private String language;
+    private String originalLanguage;
 
     @ColumnInfo(name = "runtime")
     @SerializedName("runtime")
-    private int duration;
+    private int runtime;
 
     @ColumnInfo(name = "original_title")
     @SerializedName("original_title")
@@ -65,19 +65,19 @@ public class Movie implements Parcelable {
 
     @Ignore
     @SerializedName("genre_ids")
-    private ArrayList<Integer> genres;
+    private ArrayList<Integer> genreIds;
 
     @Ignore
     @SerializedName("images")
-    private ImageResults imageResults;
+    private ImageResults images;
 
     @Ignore
     @SerializedName("videos")
-    private VideoResults videoResults;
+    private VideoResults videos;
 
     @Ignore
     @SerializedName("releases")
-    private CertificationResults certificationResults;
+    private CertificationResults releases;
 
     @ColumnInfo(name = "is_favorite")
     private boolean isFavorite;
@@ -87,40 +87,40 @@ public class Movie implements Parcelable {
     }
 
     //this constructor will be used by Room
-    public Movie(int movieId, String imageUrl, String backdropImageUrl, String title, String plot, double popularity, double userRating, String releaseDate, String language, int duration, String originalTitle, String homepage, boolean isFavorite) {
+    public Movie(int movieId, String posterPath, String backdropPath, String title, String overview, double popularity, double voteAverage, String releaseDate, String originalLanguage, int runtime, String originalTitle, String homepage, boolean isFavorite) {
         this.movieId = movieId;
-        this.imageUrl = imageUrl;
-        this.backdropImageUrl = backdropImageUrl;
+        this.posterPath = posterPath;
+        this.backdropPath = backdropPath;
         this.title = title;
-        this.plot = plot;
+        this.overview = overview;
         this.popularity = popularity;
-        this.userRating = userRating;
+        this.voteAverage = voteAverage;
         this.releaseDate = releaseDate;
-        this.language = language;
-        this.duration = duration;
+        this.originalLanguage = originalLanguage;
+        this.runtime = runtime;
         this.originalTitle = originalTitle;
         this.homepage = homepage;
         this.isFavorite = isFavorite;
     }
 
     @Ignore
-    public Movie(int movieId, String imageUrl, String backdropImageUrl, String title, String plot, double popularity, double userRating, String releaseDate, String language, int duration, String originalTitle, String homepage, ArrayList<Integer> genres, ImageResults imageResults, VideoResults videoResults, CertificationResults certificationResults, boolean isFavorite) {
+    public Movie(int movieId, String posterPath, String backdropPath, String title, String overview, double popularity, double voteAverage, String releaseDate, String originalLanguage, int runtime, String originalTitle, String homepage, ArrayList<Integer> genreIds, ImageResults images, VideoResults videos, CertificationResults releases, boolean isFavorite) {
         this.movieId = movieId;
-        this.imageUrl = imageUrl;
-        this.backdropImageUrl = backdropImageUrl;
+        this.posterPath = posterPath;
+        this.backdropPath = backdropPath;
         this.title = title;
-        this.plot = plot;
+        this.overview = overview;
         this.popularity = popularity;
-        this.userRating = userRating;
+        this.voteAverage = voteAverage;
         this.releaseDate = releaseDate;
-        this.language = language;
-        this.duration = duration;
+        this.originalLanguage = originalLanguage;
+        this.runtime = runtime;
         this.originalTitle = originalTitle;
         this.homepage = homepage;
-        this.genres = genres;
-        this.imageResults = imageResults;
-        this.videoResults = videoResults;
-        this.certificationResults = certificationResults;
+        this.genreIds = genreIds;
+        this.images = images;
+        this.videos = videos;
+        this.releases = releases;
         this.isFavorite = isFavorite;
     }
 
@@ -128,21 +128,21 @@ public class Movie implements Parcelable {
     @Ignore
     public Movie(Parcel source) {
         movieId = source.readInt();
-        imageUrl = source.readString();
-        backdropImageUrl = source.readString();
+        posterPath = source.readString();
+        backdropPath = source.readString();
         title = source.readString();
-        plot = source.readString();
+        overview = source.readString();
         popularity = source.readDouble();
-        userRating = source.readDouble();
+        voteAverage = source.readDouble();
         releaseDate = source.readString();
-        language = source.readString();
-        duration = source.readInt();
+        originalLanguage = source.readString();
+        runtime = source.readInt();
         originalTitle = source.readString();
         homepage = source.readString();
-        genres = (ArrayList<Integer>) source.readSerializable();
-        imageResults = source.readParcelable(ImageResults.class.getClassLoader());
-        videoResults = source.readParcelable(VideoResults.class.getClassLoader());
-        certificationResults = source.readParcelable(CertificationResults.class.getClassLoader());
+        genreIds = (ArrayList<Integer>) source.readSerializable();
+        images = source.readParcelable(ImageResults.class.getClassLoader());
+        videos = source.readParcelable(VideoResults.class.getClassLoader());
+        releases = source.readParcelable(CertificationResults.class.getClassLoader());
         isFavorite = source.readByte() != 0;
     }
 
@@ -154,20 +154,20 @@ public class Movie implements Parcelable {
         this.movieId = movieId;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getPosterPath() {
+        return posterPath;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setPosterPath(String posterPath) {
+        this.posterPath = posterPath;
     }
 
-    public String getBackdropImageUrl() {
-        return backdropImageUrl;
+    public String getBackdropPath() {
+        return backdropPath;
     }
 
-    public void setBackdropImageUrl(String backdropImageUrl) {
-        this.backdropImageUrl = backdropImageUrl;
+    public void setBackdropPath(String backdropPath) {
+        this.backdropPath = backdropPath;
     }
 
     public String getTitle() {
@@ -178,12 +178,12 @@ public class Movie implements Parcelable {
         this.title = title;
     }
 
-    public String getPlot() {
-        return plot;
+    public String getOverview() {
+        return overview;
     }
 
-    public void setPlot(String plot) {
-        this.plot = plot;
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 
     public double getPopularity() {
@@ -194,12 +194,12 @@ public class Movie implements Parcelable {
         this.popularity = popularity;
     }
 
-    public double getUserRating() {
-        return userRating;
+    public double getVoteAverage() {
+        return voteAverage;
     }
 
-    public void setUserRating(double userRating) {
-        this.userRating = userRating;
+    public void setVoteAverage(double voteAverage) {
+        this.voteAverage = voteAverage;
     }
 
     public String getReleaseDate() {
@@ -210,20 +210,20 @@ public class Movie implements Parcelable {
         this.releaseDate = releaseDate;
     }
 
-    public String getLanguage() {
-        return language;
+    public String getOriginalLanguage() {
+        return originalLanguage;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setOriginalLanguage(String originalLanguage) {
+        this.originalLanguage = originalLanguage;
     }
 
-    public int getDuration() {
-        return duration;
+    public int getRuntime() {
+        return runtime;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setRuntime(int runtime) {
+        this.runtime = runtime;
     }
 
     public String getOriginalTitle() {
@@ -242,36 +242,36 @@ public class Movie implements Parcelable {
         this.homepage = homepage;
     }
 
-    public ArrayList<Integer> getGenres() {
-        return genres;
+    public ArrayList<Integer> getGenreIds() {
+        return genreIds;
     }
 
-    public void setGenres(ArrayList<Integer> genres) {
-        this.genres = genres;
+    public void setGenreIds(ArrayList<Integer> genreIds) {
+        this.genreIds = genreIds;
     }
 
-    public ImageResults getImageResults() {
-        return imageResults;
+    public ImageResults getImages() {
+        return images;
     }
 
-    public void setImageResults(ImageResults imageResults) {
-        this.imageResults = imageResults;
+    public void setImages(ImageResults images) {
+        this.images = images;
     }
 
-    public VideoResults getVideoResults() {
-        return videoResults;
+    public VideoResults getVideos() {
+        return videos;
     }
 
-    public void setVideoResults(VideoResults videoResults) {
-        this.videoResults = videoResults;
+    public void setVideos(VideoResults videos) {
+        this.videos = videos;
     }
 
-    public CertificationResults getCertificationResults() {
-        return certificationResults;
+    public CertificationResults getReleases() {
+        return releases;
     }
 
-    public void setCertificationResults(CertificationResults certificationResults) {
-        this.certificationResults = certificationResults;
+    public void setReleases(CertificationResults releases) {
+        this.releases = releases;
     }
 
     public boolean isFavorite() {
@@ -290,21 +290,21 @@ public class Movie implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(movieId);
-        dest.writeString(imageUrl);
-        dest.writeString(backdropImageUrl);
+        dest.writeString(posterPath);
+        dest.writeString(backdropPath);
         dest.writeString(title);
-        dest.writeString(plot);
+        dest.writeString(overview);
         dest.writeDouble(popularity);
-        dest.writeDouble(userRating);
+        dest.writeDouble(voteAverage);
         dest.writeString(releaseDate);
-        dest.writeString(language);
-        dest.writeInt(duration);
+        dest.writeString(originalLanguage);
+        dest.writeInt(runtime);
         dest.writeString(originalTitle);
         dest.writeString(homepage);
-        dest.writeSerializable(genres);
-        dest.writeParcelable(imageResults, 0);
-        dest.writeParcelable(videoResults, 0);
-        dest.writeParcelable(certificationResults, 0);
+        dest.writeSerializable(genreIds);
+        dest.writeParcelable(images, 0);
+        dest.writeParcelable(videos, 0);
+        dest.writeParcelable(releases, 0);
         dest.writeByte((byte) (isFavorite ? 1 : 0));
     }
 

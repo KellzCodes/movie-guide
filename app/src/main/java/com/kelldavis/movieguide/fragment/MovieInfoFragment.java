@@ -49,10 +49,10 @@ public class MovieInfoFragment extends Fragment {
     RatingBar ratingBar;
     @BindView(R.id.popularity)
     TextView popularity;
-    @BindView(R.id.language)
-    TextView language;
-    @BindView(R.id.plot)
-    TextView plotTextView;
+    @BindView(R.id.originalLanguage)
+    TextView originalLanguage;
+    @BindView(R.id.overview)
+    TextView overviewTextView;
     @BindView(R.id.director)
     TextView directorTextView;
     @BindView(R.id.release_date)
@@ -114,7 +114,7 @@ public class MovieInfoFragment extends Fragment {
 
         //initialize data set
         crewList = new ArrayList<>();
-        //fetch list of language code and corresponding names
+        //fetch list of originalLanguage code and corresponding names
         HashMap<String, String> languageMap = Utils.fetchAllLanguages(getContext());
 
         //initialize retrofit client and call object that wraps the response
@@ -150,10 +150,10 @@ public class MovieInfoFragment extends Fragment {
         });
 
         //display trailer thumbnails
-        if (movie.getVideoResults() != null && movie.getVideoResults().getResults() != null && movie.getVideoResults().getResults().size() > 0) {
+        if (movie.getVideos() != null && movie.getVideos().getResults() != null && movie.getVideos().getResults().size() > 0) {
             recyclerView.setVisibility(View.VISIBLE);
             emptyTextView.setVisibility(View.GONE);
-            videoList.addAll(movie.getVideoResults().getResults());
+            videoList.addAll(movie.getVideos().getResults());
             adapter.notifyDataSetChanged();
         } else {
             emptyTextView.setVisibility(View.VISIBLE);
@@ -162,13 +162,13 @@ public class MovieInfoFragment extends Fragment {
 
 
         //set up view data
-        plotTextView.setText(movie.getPlot());
+        overviewTextView.setText(movie.getOverview());
         releaseDateTextView.setText(movie.getReleaseDate());
-        String rating = movie.getUserRating() == 0 ? getString(R.string.no_ratings) : DecimalFormat.getNumberInstance().format(movie.getUserRating()).concat("/10");
+        String rating = movie.getVoteAverage() == 0 ? getString(R.string.no_ratings) : DecimalFormat.getNumberInstance().format(movie.getVoteAverage()).concat("/10");
         tmdbRating.setText(rating);
-        ratingBar.setRating((float) (movie.getUserRating() / 2f));
+        ratingBar.setRating((float) (movie.getVoteAverage() / 2f));
         popularity.setText(DecimalFormat.getNumberInstance().format(movie.getPopularity()));
-        language.setText(languageMap.get(movie.getLanguage()));
+        originalLanguage.setText(languageMap.get(movie.getOriginalLanguage()));
         if (!TextUtils.isEmpty(movie.getHomepage())) {
             homepage.setText(movie.getHomepage());
         }
