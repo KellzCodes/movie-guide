@@ -47,4 +47,12 @@
     <string name="no_trailers">No trailers available</string>
     <string name="no_favorites">No favorites saved.</string>
     <string name="browse_movies">Browse Movies</string>
+    <string name="open_drawer">opening drawer</string>
+    <string name="closing_drawer">closing drawer</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="most_popular">Most Popular</string>
+    <string name="sort_order">Sort Order</string>
+    <string name="ascending">ascending</string>
+    <string name="descending">descending</string>
 </resources>
