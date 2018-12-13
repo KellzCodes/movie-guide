@@ -15,6 +15,8 @@ public class Constants {
     public static final String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/";
     public static final String IMAGE_SIZE = "w780/";
     public static final String IMAGE_URL_SIZE = IMAGE_BASE_URL + IMAGE_SIZE;
+    public static final String SCHEMA = "https";
+    static final String LANGUAGE = "en-US";
 
     // save and restore default sort order on activity state changes
     public static final String MOST_POPULAR_OPTION_CHECKED = "MOST_POPULAR_OPTION_CHECKED";

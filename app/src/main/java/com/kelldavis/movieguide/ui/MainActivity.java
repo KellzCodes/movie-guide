@@ -1,6 +1,9 @@
 package com.kelldavis.movieguide.ui;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -25,6 +28,7 @@ import com.kelldavis.movieguide.listener.OnLoadMoreListener;
 import com.kelldavis.movieguide.model.Movie;
 import com.kelldavis.movieguide.model.MovieResults;
 import com.kelldavis.movieguide.utilities.MovieApiService;
+import com.kelldavis.movieguide.utilities.ScrollListener;
 import com.kelldavis.movieguide.utilities.Utils;
 import com.kelldavis.movieguide.viewmodel.MovieDetailsViewModel;
 
@@ -78,6 +82,22 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     private MovieDetailsViewModel viewModel;
 
+    private ScrollListener scrollListener;
+    private static final String BUNDLE_RECYCLER_POSITION_KEY = "recycler_position";
+
+    private final BroadcastReceiver networkChangeReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (recyclerView.getAdapter() == null){
+                //TODO 1 finish onReceive
+            }
+        }
+    };
+
+    private boolean isNetworkAvailable(){
+        //TODO 2 finish network
+        return true;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
