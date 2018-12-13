@@ -1,6 +1,7 @@
 package com.kelldavis.movieguide.ui;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
