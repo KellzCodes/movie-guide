@@ -9,7 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "MOVIE_DB_API_KEY", '"PUT_YOUR_API_KEY_HERE"')
+        buildConfigField("String", "MOVIE_DB_API_KEY", '"88bb73e56d8f8777cfc27a44c62a9d4a"')
     }
     buildTypes {
         release {

@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ import butterknife.ButterKnife;
 
 import static com.kelldavis.movieguide.utilities.Constants.IMAGE_URL_SIZE;
 import static com.kelldavis.movieguide.utilities.Constants.ITEM;
+import static com.kelldavis.movieguide.utilities.Constants.LOG_TAG;
 import static com.kelldavis.movieguide.utilities.Constants.POSTER_IMG;
 import static com.kelldavis.movieguide.utilities.Constants.PROGRESS;
 
@@ -85,7 +87,9 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
                     //if RecyclerView is scrolled to end, call load more to fetch next page of results
                     if (!loading && itemCount <= (lastVisibleItemPosition + viewThreshold)) {
+                        Log.d(LOG_TAG, "RecyclerView has been scrolled to end");
                         if (onLoadMoreListener != null) {
+                            Log.d(LOG_TAG, "Listener is active");
                             onLoadMoreListener.onLoadMore();
                         }
                         setLoading(true);
@@ -183,6 +187,34 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         return movies.get(position) != null ? ITEM : PROGRESS;
     }
 
+    /**
+     * called to update data set
+     *
+     * @param movies list of new data
+     */
+    public void setData(List<Movie> movies) {
+        this.movies = movies;
+        notifyDataSetChanged();
+    }
+
+    /**
+     * clear all data
+     */
+    public void clear() {
+        this.movies.clear();
+        notifyDataSetChanged();
+    }
+
+    /**
+     * add data fetched from API
+     *
+     * @param movies list of fetched data
+     */
+    public void addAll(List<Movie> movies) {
+        this.movies.addAll(movies);
+        notifyDataSetChanged();
+    }
+
     //ViewHolder for movie item view to help reduce findViewById calls
     class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -235,12 +267,9 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
      */
     public void addLoader(Movie movie) {
         movies.add(movie);
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                //notify the adapter of the change in data set
-                notifyItemInserted(movies.size() - 1);
-            }
+        new Handler().post(() -> {
+            //notify the adapter of the change in data set
+            notifyItemInserted(movies.size() - 1);
         });
 
     }
@@ -275,4 +304,3 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         this.onLoadMoreListener = onLoadMoreListener;
     }
 }
-

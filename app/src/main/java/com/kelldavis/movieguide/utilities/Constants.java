@@ -61,5 +61,14 @@ public class Constants {
 
     // append to response query parameter value
     public static final String APPEND_TO_RESPONSE_VALUE = "images,videos,releases";
+
+    //save page numbers to restore paginated data
+    public static final String MOST_POPULAR_START_PAGE = "MOST_POPULAR_START_PAGE";
+    public static final String TOP_RATED_START_PAGE = "TOP_RATED_START_PAGE";
+
+    //key to save data set
+    public static final String MOVIES_LIST = "MOVIES_LIST";
+    //define key for saving RecyclerView Layout Manager state
+    public static final String RECYCLER_VIEW_LAYOUT_MANAGER_STATE = "LAYOUT_MANAGER_STATE";
 }
 
